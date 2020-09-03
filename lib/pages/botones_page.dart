@@ -13,12 +13,14 @@ class BotonesPage extends StatelessWidget{
           SingleChildScrollView(
             child: Column(
               children: <Widget>[
-
+                _titulos(),
               ],
             ),
           )
+      
         ],
-      )
+      ),
+      bottomNavigationBar: _bootomNavigationVar(context)
     );
   }
 
@@ -74,6 +76,50 @@ class BotonesPage extends StatelessWidget{
           child: cajaRosa,
         ),
       ],
+    );
+  }
+
+  Widget _titulos(){
+    return SafeArea(
+        child: Container(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            // alinea hacia la izquierda la informacion
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Text("Classify transaction", style: TextStyle(color: Colors.white, fontSize: 30.0, fontWeight: FontWeight.bold),),
+              SizedBox( height: 10.0),
+              Text("Classify this transaction into a particular category", style: TextStyle(color: Colors.white, fontSize: 10.0)),
+            ]
+          ),
+      ),
+    );
+  }
+
+  Widget _bootomNavigationVar(BuildContext context){
+    return Theme(
+      data: Theme.of(context).copyWith(
+        canvasColor: Color.fromRGBO(55, 57, 84, 1.0),
+        primaryColor: Colors.pinkAccent,
+        textTheme: Theme.of(context).textTheme
+        .copyWith( caption: TextStyle(color: Color.fromRGBO(116, 117, 152, 1.0) ))
+      ), 
+      child: BottomNavigationBar(
+        items: [
+          BottomNavigationBarItem(
+            icon: Icon(Icons.calendar_today, size: 30.0,),
+            title: Container()
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.bubble_chart, size: 30.0,),
+            title: Container()
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.supervised_user_circle, size: 30.0,),
+            title: Container()
+          ),
+        ],
+      )
     );
   }
 }

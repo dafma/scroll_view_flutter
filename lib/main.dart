@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:scroll_view/pages/botones_page.dart';
 import 'package:scroll_view/pages/scroll_page.dart';
 import 'package:splashscreen/splashscreen.dart';
@@ -34,6 +35,12 @@ class InicioSplash extends StatefulWidget {
 class _InicioSplashState extends State<InicioSplash> {
   @override
   Widget build(BuildContext context) {
+
+    //  pone de color blanco la barra de hasta arriba
+    SystemChrome.setSystemUIOverlayStyle( SystemUiOverlayStyle.light.copyWith(
+      statusBarColor: Colors.white,
+    ));
+
     return SplashScreen(
       title: Text("Bienvenido", style: new TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0)),  
       seconds: 8,
