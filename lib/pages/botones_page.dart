@@ -14,6 +14,7 @@ class BotonesPage extends StatelessWidget{
             child: Column(
               children: <Widget>[
                 _titulos(),
+                _botonesredondos(),
               ],
             ),
           )
@@ -122,4 +123,61 @@ class BotonesPage extends StatelessWidget{
       )
     );
   }
+
+  Widget _botonesredondos(){
+    return Table(
+      children: [
+        TableRow(
+          children: [
+            _crearBotonredondeado(Colors.blue, Icons.border_all, 'General'),
+            _crearBotonredondeado(Colors.purpleAccent, Icons.directions, 'Op'),
+          ]
+        ),
+        TableRow(
+          children: [
+            _crearBotonredondeado(Colors.redAccent, Icons.label, 'Farmacias'),
+            _crearBotonredondeado(Colors.yellowAccent, Icons.wifi, 'Restaurantes'),
+          ]
+        ),
+        TableRow(
+          children: [
+            _crearBotonredondeado(Colors.greenAccent, Icons.radio, 'Deportes'),
+            _crearBotonredondeado(Colors.indigoAccent, Icons.phone, 'Pizzeria'),
+          ]
+        ),
+        TableRow(
+          children: [
+            _crearBotonredondeado(Colors.greenAccent, Icons.people, 'Panaderia'),
+            _crearBotonredondeado(Colors.blueGrey, Icons.calendar_today, 'Papeleria'),
+          ]
+        ),
+      ],
+    );
+    
+  }
+
+  Widget _crearBotonredondeado(Color color, IconData icono, String texto){
+    return Container(
+      height: 160.0,
+      margin: EdgeInsets.all(5.0),
+      decoration: BoxDecoration(
+        color: Color.fromRGBO(62, 66, 107, 0.7),
+        borderRadius: BorderRadius.circular(20.0),
+      ),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceAround,  
+        children: <Widget>[
+          SizedBox(height: 5.0),
+          CircleAvatar(
+            backgroundColor: color,
+            radius: 35.0,
+            child: Icon(icono, color: Colors.white,size: 30.0,),
+          ),
+          Text(texto, style: TextStyle(color: Colors.pinkAccent),),
+          SizedBox(height: 5.0),
+        ],
+      ),
+    );
+  }
+
 }
